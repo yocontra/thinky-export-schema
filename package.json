@@ -1,7 +1,7 @@
 {
   "name": "thinky-export-schema",
   "version": "1.0.0",
-  "description": "Description goes here",
+  "description": "Export a thinky model to a serializable object",
   "main": "dist/index.js",
   "keywords": [
     "thinky",
