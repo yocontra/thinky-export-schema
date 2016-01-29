@@ -3,7 +3,13 @@
   "version": "1.0.0",
   "description": "Description goes here",
   "main": "dist/index.js",
-  "keywords": [],
+  "keywords": [
+    "thinky",
+    "rethinkdb",
+    "orm",
+    "export",
+    "schema"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/contra/thinky-export-schema.git"
