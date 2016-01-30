@@ -75,7 +75,6 @@
     }
   },
   "dependencies": {
-    "lodash.map": "^4.0.1",
     "lodash.mapvalues": "^4.0.1"
   }
 }
