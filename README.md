@@ -22,25 +22,37 @@ npm install thinky-export-schema --save
 var exportSchema = require('thinky-export-schema')
 
 var User = thinky.createModel('User', {
-  id: type.number(),
-  name: type.string(),
+  id: Number,
+  name: String,
   times: {
     created: Date,
     updated: Date
-  }
+  },
+  friended: [String]
 })
-
+User.hasAndBelongsToMany(User, 'friends', 'friended', 'id')
 console.log(exportSchema(User))
-/**
+/*
 {
-  id: 'Number',
-  name: 'String',
-  times: {
-    created: 'Date',
-    updated: 'Date'
-  }
+  fields: {
+    id: 'Number',
+    name: 'String',
+    times: {
+      created: 'Date',
+      updated: 'Date'
+    },
+    friended: ['String']
+  },
+  relationships: {
+    friends: {
+      type: 'hasAndBelongsToMany',
+      rightKey: 'id',
+      leftKey: 'friended'
+    }
+  },
+  validation: {}
 }
- **/
+*/
 ```
 
 ###ES6
@@ -55,19 +67,32 @@ const User = thinky.createModel('User', {
     created: Date,
     updated: Date
   }
+  friended: [String]
 })
+User.hasAndBelongsToMany(User, 'friends', 'friended', 'id')
 
 console.log(exportSchema(User))
-/**
+/*
 {
-  id: 'Number',
-  name: 'String',
-  times: {
-    created: 'Date',
-    updated: 'Date'
-  }
+  fields: {
+    id: 'Number',
+    name: 'String',
+    times: {
+      created: 'Date',
+      updated: 'Date'
+    },
+    friended: ['String']
+  },
+  relationships: {
+    friends: {
+      type: 'hasAndBelongsToMany',
+      rightKey: 'id',
+      leftKey: 'friended'
+    }
+  },
+  validation: {}
 }
- **/
+*/
  ```
 
 [downloads-image]: http://img.shields.io/npm/dm/thinky-export-schema.svg
